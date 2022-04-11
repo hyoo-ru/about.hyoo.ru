@@ -4,6 +4,12 @@
 
 [hyoo_about_content] {
 	padding: 0.75rem;
+}
+
+[hyoo_about] {
+}
+
+[hyoo_about_page] {
 	margin: 0 auto;
 	max-width: 55rem;
 }
