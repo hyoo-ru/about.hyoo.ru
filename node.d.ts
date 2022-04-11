@@ -807,19 +807,6 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    class $mol_plugin extends $mol_view {
-        dom_node(next?: Element): Element;
-        attr_static(): {
-            [key: string]: string | number | boolean;
-        };
-        event(): {
-            [key: string]: (event: Event) => void;
-        };
-        render(): void;
-    }
-}
-
-declare namespace $ {
     function $mol_style_define<Component extends $mol_view, Config extends $mol_style_guard<Component, Config>>(Component: new () => Component, config: Config): HTMLStyleElement | null;
 }
 
@@ -834,77 +821,6 @@ declare namespace $ {
         readonly space: $mol_style_func<"var", "--mol_gap_space">;
         readonly blur: $mol_style_func<"var", "--mol_gap_blur">;
     };
-}
-
-declare namespace $ {
-    class $mol_scroll extends $mol_view {
-        scroll_top(val?: any): number;
-        scroll_left(val?: any): number;
-        field(): {
-            tabIndex: number;
-        };
-        event(): {
-            scroll: (event?: any) => any;
-        };
-        tabindex(): number;
-        event_scroll(event?: any): any;
-    }
-}
-
-declare namespace $ {
-    class $mol_dom_listener extends $mol_object {
-        _node: any;
-        _event: string;
-        _handler: (event: any) => any;
-        _config: boolean | {
-            passive: boolean;
-        };
-        constructor(_node: any, _event: string, _handler: (event: any) => any, _config?: boolean | {
-            passive: boolean;
-        });
-        destructor(): void;
-    }
-}
-
-declare namespace $ {
-    class $mol_print extends $mol_object {
-        static before(): $mol_dom_listener;
-        static after(): $mol_dom_listener;
-        static active(next?: boolean): boolean;
-    }
-}
-
-declare namespace $.$$ {
-}
-
-declare namespace $.$$ {
-    class $mol_scroll extends $.$mol_scroll {
-        scroll_top(next?: number, cache?: 'cache'): number;
-        scroll_left(next?: number, cache?: 'cache'): number;
-        event_scroll(next?: Event): void;
-        minimal_height(): number;
-        minimal_width(): number;
-    }
-}
-
-declare namespace $ {
-    class $mol_page extends $mol_view {
-        dom_name(): string;
-        sub(): readonly any[];
-        Title(): $mol_view;
-        tools(): readonly $mol_view_content[];
-        Tools(): $mol_view;
-        head(): readonly any[];
-        Head(): $mol_view;
-        body(): readonly $mol_view_content[];
-        body_scroll_top(val?: any): number;
-        Body(): $$.$mol_scroll;
-        foot(): readonly $mol_view[];
-        Foot(): $mol_view;
-    }
-}
-
-declare namespace $.$$ {
 }
 
 declare namespace $ {
@@ -1170,6 +1086,29 @@ declare namespace $ {
 
 declare namespace $ {
     function $mol_support_css_overflow_anchor(this: $): boolean;
+}
+
+declare namespace $ {
+    class $mol_dom_listener extends $mol_object {
+        _node: any;
+        _event: string;
+        _handler: (event: any) => any;
+        _config: boolean | {
+            passive: boolean;
+        };
+        constructor(_node: any, _event: string, _handler: (event: any) => any, _config?: boolean | {
+            passive: boolean;
+        });
+        destructor(): void;
+    }
+}
+
+declare namespace $ {
+    class $mol_print extends $mol_object {
+        static before(): $mol_dom_listener;
+        static after(): $mol_dom_listener;
+        static active(next?: boolean): boolean;
+    }
 }
 
 declare namespace $ {
@@ -2040,10 +1979,69 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    class $hyoo_about extends $mol_page {
-        title(): string;
-        tools(): readonly any[];
-        body(): readonly any[];
+    class $mol_scroll extends $mol_view {
+        scroll_top(val?: any): number;
+        scroll_left(val?: any): number;
+        field(): {
+            tabIndex: number;
+        };
+        event(): {
+            scroll: (event?: any) => any;
+        };
+        tabindex(): number;
+        event_scroll(event?: any): any;
+    }
+}
+
+declare namespace $.$$ {
+}
+
+declare namespace $.$$ {
+    class $mol_scroll extends $.$mol_scroll {
+        scroll_top(next?: number, cache?: 'cache'): number;
+        scroll_left(next?: number, cache?: 'cache'): number;
+        event_scroll(next?: Event): void;
+        minimal_height(): number;
+        minimal_width(): number;
+    }
+}
+
+declare namespace $ {
+    class $mol_page extends $mol_view {
+        dom_name(): string;
+        sub(): readonly any[];
+        Title(): $mol_view;
+        tools(): readonly $mol_view_content[];
+        Tools(): $mol_view;
+        head(): readonly any[];
+        Head(): $mol_view;
+        body(): readonly $mol_view_content[];
+        body_scroll_top(val?: any): number;
+        Body(): $$.$mol_scroll;
+        foot(): readonly $mol_view[];
+        Foot(): $mol_view;
+    }
+}
+
+declare namespace $.$$ {
+}
+
+declare namespace $ {
+    class $mol_plugin extends $mol_view {
+        dom_node(next?: Element): Element;
+        attr_static(): {
+            [key: string]: string | number | boolean;
+        };
+        event(): {
+            [key: string]: (event: Event) => void;
+        };
+        render(): void;
+    }
+}
+
+declare namespace $ {
+    class $hyoo_about extends $mol_view {
+        sub(): readonly any[];
         Sources(): $mol_link_source;
         text1(): string;
         Text1(): $$.$mol_text;
@@ -2057,6 +2055,7 @@ declare namespace $ {
         Expander_content(): $$.$mol_list;
         Expander_text(): $mol_section;
         Content(): $$.$mol_list;
+        Page(): $mol_page;
     }
 }
 
