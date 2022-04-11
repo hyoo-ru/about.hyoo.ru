@@ -6566,44 +6566,6 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    class $mol_section extends $mol_list {
-        rows() {
-            return [
-                this.Head(),
-                this.Content()
-            ];
-        }
-        head() {
-            return [
-                this.title()
-            ];
-        }
-        Head() {
-            const obj = new this.$.$mol_view();
-            obj.sub = () => this.head();
-            return obj;
-        }
-        Content() {
-            return null;
-        }
-    }
-    __decorate([
-        $mol_mem
-    ], $mol_section.prototype, "Head", null);
-    $.$mol_section = $mol_section;
-})($ || ($ = {}));
-//mol/section/-view.tree/section.view.tree.ts
-;
-"use strict";
-var $;
-(function ($) {
-    $mol_style_attach("mol/section/section.view.css", "[mol_section_head] {\n\tpadding: var(--mol_gap_text);\n\tfont-weight: bolder;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: flex-end;\n\tflex-wrap: wrap;\n\ttext-shadow: 0 0;\n}\n");
-})($ || ($ = {}));
-//mol/section/-css/section.view.css.ts
-;
-"use strict";
-var $;
-(function ($) {
     class $mol_scroll extends $mol_view {
         scroll_top(val) {
             if (val !== undefined)
@@ -7000,7 +6962,7 @@ var $;
         }
         CTO() {
             const obj = new this.$.$mol_expander();
-            obj.title = () => "Технический директор";
+            obj.title = () => "Техническому директору";
             obj.Content = () => this.CTO_text();
             return obj;
         }
@@ -7011,7 +6973,7 @@ var $;
         }
         Student() {
             const obj = new this.$.$mol_expander();
-            obj.title = () => "Новичек";
+            obj.title = () => "Новичку";
             obj.Content = () => this.Student_text();
             return obj;
         }
@@ -7022,30 +6984,17 @@ var $;
         }
         Senior() {
             const obj = new this.$.$mol_expander();
-            obj.title = () => "Наевшийся ентерпрайза сеньор";
+            obj.title = () => "Сеньору";
             obj.Content = () => this.Senior_text();
-            return obj;
-        }
-        Expander_content() {
-            const obj = new this.$.$mol_list();
-            obj.rows = () => [
-                this.CTO(),
-                this.Student(),
-                this.Senior()
-            ];
-            return obj;
-        }
-        Expander_text() {
-            const obj = new this.$.$mol_section();
-            obj.title = () => "Вы";
-            obj.Content = () => this.Expander_content();
             return obj;
         }
         Content() {
             const obj = new this.$.$mol_list();
             obj.rows = () => [
                 this.Text1(),
-                this.Expander_text()
+                this.CTO(),
+                this.Student(),
+                this.Senior()
             ];
             return obj;
         }
@@ -7085,12 +7034,6 @@ var $;
     __decorate([
         $mol_mem
     ], $hyoo_about.prototype, "Senior", null);
-    __decorate([
-        $mol_mem
-    ], $hyoo_about.prototype, "Expander_content", null);
-    __decorate([
-        $mol_mem
-    ], $hyoo_about.prototype, "Expander_text", null);
     __decorate([
         $mol_mem
     ], $hyoo_about.prototype, "Content", null);

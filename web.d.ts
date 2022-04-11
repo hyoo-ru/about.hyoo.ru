@@ -1951,18 +1951,6 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-    class $mol_section extends $mol_list {
-        rows(): readonly any[];
-        head(): readonly any[];
-        Head(): $mol_view;
-        Content(): any;
-    }
-}
-
-declare namespace $ {
-}
-
-declare namespace $ {
     class $mol_scroll extends $mol_view {
         scroll_top(val?: any): number;
         scroll_left(val?: any): number;
@@ -2036,8 +2024,6 @@ declare namespace $ {
         Student(): $$.$mol_expander;
         Senior_text(): $$.$mol_text;
         Senior(): $$.$mol_expander;
-        Expander_content(): $$.$mol_list;
-        Expander_text(): $mol_section;
         Content(): $$.$mol_list;
         Page(): $mol_page;
     }
