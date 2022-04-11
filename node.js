@@ -7100,7 +7100,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $mol_style_attach("hyoo/about/about.view.css", "[hyoo_about_main_head] {\n\tfont-size: 32px;\n}\n\n[hyoo_about_content] {\n\tpadding: 0.75rem;\n}\n");
+    $mol_style_attach("hyoo/about/about.view.css", "[hyoo_about_main_head] {\n\tfont-size: 32px;\n}\n\n[hyoo_about_content] {\n\tpadding: 0.75rem;\n\tmargin: 0 auto;\n\tmax-width: 55rem;\n}\n");
 })($ || ($ = {}));
 //hyoo/about/-css/about.view.css.ts
 ;
